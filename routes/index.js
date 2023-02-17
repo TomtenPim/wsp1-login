@@ -45,6 +45,10 @@ router.post('/login', async function (req, res, next) {
                     req.session.loggedin = true;
                     req.session.username = username;
 
+                    console.log(req.session.loggedin)
+                    console.log(req.session.username)
+
+
                     res.redirect('/profile');
                 }
                 else{ 
@@ -87,8 +91,9 @@ router.get('/profile', function(req, res, next){
 
     console.log(req.session.loggedin)
 
+
     if(req.session.loggedin){
-        res.render('profile.njk', {username: res.session.username})
+        res.render('profile.njk', { username: res.session.username})
     }
     else{
         res.status(401).json('Access denied')

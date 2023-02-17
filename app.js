@@ -7,7 +7,6 @@ const nunjucks = require('nunjucks');
 const session = require('express-session');
 
 
-
 const indexRouter = require('./routes/index');
 
 const app = express();
@@ -17,8 +16,8 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: true }
 }));
+
 
 nunjucks.configure('views', {
     autoescape: true,
