@@ -93,6 +93,8 @@ router.get('/profile', function(req, res, next){
 
 
     if(req.session.loggedin){
+
+        // res.session.username ger namn vid console.log men inte username: res.session.username 
         res.render('profile.njk', { username: res.session.username})
     }
     else{
