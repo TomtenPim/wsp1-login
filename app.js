@@ -4,10 +4,21 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const nunjucks = require('nunjucks');
+const session = require('express-session');
+
+
 
 const indexRouter = require('./routes/index');
 
 const app = express();
+
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}));
 
 nunjucks.configure('views', {
     autoescape: true,

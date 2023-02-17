@@ -16,7 +16,7 @@ describe('3. Authentication', () => {
             const hash = await bcrypt.hash('test', 10);
             await pool
                 .promise()
-                .query(`INSERT INTO users (name, password) VALUES (?,?)`, [
+                .query(`INSERT INTO hgusers (name, password) VALUES (?,?)`, [
                     'test',
                     hash,
                 ]);
@@ -97,14 +97,14 @@ describe('3. Authentication', () => {
         });
     });
     /** Teardown
-     * After all tests, we delete the users from the database
+     * After all tests, we delete the hgusers from the database
      * and close the session
      * We also close the database connection
      */
     afterAll(async () => {
         try {
-            await pool.promise().query('DELETE FROM users WHERE name = "asdf"');
-            await pool.promise().query('DELETE FROM users WHERE name = "test"');
+            await pool.promise().query('DELETE FROM hgusers WHERE name = "asdf"');
+            await pool.promise().query('DELETE FROM hgusers WHERE name = "test"');
         } catch (error) {
             console.log('Something went wrong with database cleanup: ');
             console.log(error);

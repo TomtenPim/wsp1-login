@@ -2,7 +2,10 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const router = express.Router();
 const pool = require('../utils/database');
+const session = require('express-session');
+
 const promisePool = pool.promise();
+
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -34,17 +37,23 @@ router.post('/login', async function (req, res, next) {
             const bcryptPassword = rows[0].password
 
             bcrypt.compare(password, bcryptPassword , function(err, result) {
-                /*res.json({result})*/
+
+                console.assert(result,'Invalid username or password')
+
                 if(result){
+                    
+                    req.session.loggedin = true;
+                    req.session.username = username;
+
                     res.redirect('/profile');
                 }
-                else{
-                    res.redirect('/login');
+                else{ 
+                    res.json('Invalid username or password');
                 }
             });
         }
         else{
-            res.redirect('/login');
+            res.json('Invalid username or password');
         }
         
     }
@@ -74,8 +83,27 @@ router.get('/bcrypt/:pwd', function (req, res ,next){
     });
 });
 
-router.get('/profile/:name', function(req, res, next){
-    res.json(':)');
+router.get('/profile', function(req, res, next){
+
+    console.log(req.session.loggedin)
+
+    if(req.session.loggedin){
+        res.render('profile.njk', {username: res.session.username})
+    }
+    else{
+        res.status(401).json('Access denied')
+    }
+});
+
+router.post('/logout', async function(req, res, next){
+    if(req.session.loggedin){
+
+        req.session.destroy();
+        res.redirect('/')
+    }
+    else{
+        res.status(401).json('Access denied')
+    }
 });
 
 module.exports = router;
