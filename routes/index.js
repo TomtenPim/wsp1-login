@@ -96,7 +96,7 @@ router.post('/logout', async function(req, res, next){
 
 router.post('/delete', async function(req, res, next){
     if(req.session.loggedin){
-
+        
         await promisePool.query('DELETE FROM hgusers WHERE name= (?)', [req.session.username]);
         req.session.destroy();
         res.redirect('/')
