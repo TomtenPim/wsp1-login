@@ -20,6 +20,8 @@ Redovisa arbetets olika delar. Så att läsaren förstår vad du gjort och hur.
 
 nej tack :)
 
+(wip)
+
 ## Positiva erfarenheter
 
 kodandet gick bra och vi han klart med alla tester på den allokerade tiden vi fick. Vi höll ett bra fokus och tog oss fram för varje lektion. Detta fokus skulle vara bra om jag kunde ta med mig i frmatida projekt.
@@ -28,12 +30,12 @@ Diskution mellan gruppen gick väl och ledde oftast till snabba lösningar på d
 
 ## Negativa erfarenheter
 
-Grupparbetet hade kunant utföras bättre. Poängen var att alla skulle tala och alal skulle koda men det blev mestadels en som kodade däremot var alla med och diskuterade steg frammot och lösningar på problem. För att inte upprepa att det bara blir en som sitter och kodar skulle jag implementera något klock- eller passsystem där man antingen byter vem som skriver utifrån en timer elelr att man designerar en person per pass att vara den som kodar.
+Grupparbetet hade kunant utföras bättre. Poängen var att alla skulle tala och alla skulle koda men det blev mestadels en som kodade däremot var alla med och diskuterade steg frammot och lösningar på problem. För att inte upprepa att det bara blir en som sitter och kodar skulle jag implementera något klock- eller passsystem där man antingen byter vem som skriver utifrån en timer elelr att man designerar en person per pass att vara den som kodar.
 
 Det problem som tog mest tid för oss att lösa var en req.parse... som hade råkat skrivas res.parse... Hur detta kan motverkas då at det inte tar 30 min sammanlagd tid skulle vara att, i framtida felsökning, läsa koden lite noggrannare 
 
 ## Sammanfattning
 
-Detta projekt har visat fördelarna med att arbeta i grupp för denna sorters arbeten. Att lätt ha tillgång till folka att analysera och diskutera problem hjälper mycket med att producera en färdig produkt. Produkten i fråga hade fungerande login, registrering och en profilhemsida med fungerande säkerhet. 
+Detta projekt har visat fördelarna med att arbeta i grupp för denna sorters arbeten. Att lätt ha tillgång till folk att analysera och diskutera problem med hjälper mycket med att producera en funktionell och färdig produkt. Produkten i fråga hade fungerande login, registrering och en profilhemsida med fungerande säkerhet. 
 
-Om man skulle göra uppgiften igen skulle jag iplementera något system som uppmanr mer till att rotera den akriva kodaren.
+Om man skulle göra uppgiften igen skulle jag implementera något system som uppmanar mer till att rotera den aktiva kodaren.
